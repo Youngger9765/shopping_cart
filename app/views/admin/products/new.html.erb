@@ -1,0 +1,18 @@
+<h1>admin products new</h1>
+
+<%=form_for @product do|f|%>
+  <%= f.label :name, "Name" %>
+  <%= f.text_field :name %>
+
+  <%= f.label :description, "Description" %>
+  <%= f.text_area :description %>
+
+  <%= f.label :unit, "Unit" %>
+  <%= f.text_field :unit %>
+
+  <%= f.label :price, "Price" %>
+  <%= f.text_field :price %>
+
+  <%= f.submit "Create" %>
+
+<%end%>
