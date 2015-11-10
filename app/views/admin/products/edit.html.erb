@@ -1,0 +1,28 @@
+<h1>admin products edit</h1>
+
+<%=form_for @product, :url => admin_product_path, :method => :patch do|f|%>
+
+
+<div class="form-group">
+  <%= f.label :name, "Name" %>
+  <%= f.text_field :name %>
+</div>
+
+<div class="form-group">
+  <%= f.label :description, "Description" %>
+  <%= f.text_area :description %>
+</div>
+
+<div class="form-group">
+  <%= f.label :unit, "Unit" %>
+  <%= f.text_field :unit %>
+</div>
+
+<div class="form-group">
+  <%= f.label :price, "Price" %>
+  <%= f.text_field :price %>
+</div>
+
+  <%= f.submit "update" %>
+
+<%end%>

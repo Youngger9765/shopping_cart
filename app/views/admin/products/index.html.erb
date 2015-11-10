@@ -7,9 +7,10 @@
     <td>單位</td>
     <td>價格(台幣)</td>
   </tr>
+
   <tr>
     <% @products.each do |p|%>
-      <td> <%=p.name%></td>
+      <td> <%=link_to p.name, edit_admin_product_path(p)%></td>
       <td> <%=p.description%></td>
       <td> <%=p.unit%></td>
       <td> <%=p.price%></td>
