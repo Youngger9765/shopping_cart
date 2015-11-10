@@ -27,6 +27,12 @@
   <%end%>
 </table>
 
+<script>
+  $("#order_product_list").select2({
+     tags: <%=raw Product.all.map{ |p| p.name }.to_json %>,
+     tokenSeparators: [',', ' ']
+   });
+</script>
 
 
 

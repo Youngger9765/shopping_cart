@@ -28,11 +28,28 @@ class OrdersController < ApplicationController
     @order = Order.find(params[:id])
   end
 
+  def update
+    @order = Order.find(params[:id])
+    Order.find(params[:id]).update(order_params)
+
+    if params[:order][:product_list]
+      product_list = params[:order][:product_list]
+      product_list.shift(1)
+
+      product_list.each do|p|
+        product_id = p.to_i
+        OrderProductShip.create( :order_id => params[:id], :product_id => product_id)
+      end
+    end
+
+    redirect_to order_path(@order)
+  end
+
 
   private
 
   def order_params
-    params.require(:order).permit(:name)
+    params.require(:order).permit(:name, :product_list)
   end
 
 end
