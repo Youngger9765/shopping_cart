@@ -1,6 +1,11 @@
 class OrdersController < ApplicationController
   
-  belongs_to :customer
-  has_many :products
+  def index
+    @orders = Order.all
+  end 
+
+  def new
+    @order = Order.new
+  end
 
 end

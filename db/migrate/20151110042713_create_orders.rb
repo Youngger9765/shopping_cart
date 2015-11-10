@@ -5,6 +5,7 @@ class CreateOrders < ActiveRecord::Migration
       t.string :address
       t.string :phone
       t.date :deadline
+      t.integer :total
       t.string :status
       t.string :payment
       t.timestamps null: false
