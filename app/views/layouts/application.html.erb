@@ -14,6 +14,7 @@
 <div class="container">
   <div class="row">
     <div class="col-md-12">
+      <%= link_to "訂單資訊", orders_path, :class =>"btn btn-info"%>
       <%= link_to "產品清單", products_path, :class =>"btn btn-info"%>
       <%= link_to "管理產品", admin_products_path, :class =>"btn btn-info"%>
       <% if flash[:alert].present? %>
