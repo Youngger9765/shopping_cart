@@ -2,7 +2,7 @@
 
 <%=form_for @order, :url => orders_path, :method => :post do|f|%>
   <div class="form-group">
-    <%= f.label :product_name, "Name" %>
+    <%= f.label :products, "Name" %>
     <%= f.select :products, Product.all.map{ |x| [x.name, x.id]}, {}, :multiple => "true" , :class => "form-control"%>
   </div>
 
