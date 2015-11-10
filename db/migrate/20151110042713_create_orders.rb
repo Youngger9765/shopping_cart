@@ -7,6 +7,7 @@ class CreateOrders < ActiveRecord::Migration
       t.date :deadline
       t.string :status
       t.string :payment
+      t.integer :customer_id
       t.timestamps null: false
     end
   end
