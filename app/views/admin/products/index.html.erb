@@ -5,7 +5,7 @@
     <td>品名</td>
     <td>敘述</td>
     <td>單位</td>
-    <td>價格</td>
+    <td>價格(台幣)</td>
   </tr>
   <tr>
     <% @products.each do |p|%>
@@ -19,4 +19,4 @@
 
 
 <hr>
-<%= link_to "新建產品", new_admin_product_path%>
+<%= link_to "新建產品", new_admin_product_path, :class =>"btn btn-default"%>
