@@ -6,6 +6,10 @@ class Order < ActiveRecord::Base
   def order_number
   end
 
+  def total_product_number
+    self.order_product_ships.size
+  end
+
   def product_list
     self.products.map{|p| p.name}
   end

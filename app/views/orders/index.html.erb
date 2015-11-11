@@ -34,7 +34,8 @@
       <td><%=link_to order.name, order_path(order)%></td>
       <td><%=order.phone%></td>
       <td><%=order.created_at%></td>
-      <td><%=%></td> 
+      <td><%=order.total_product_number%></td>
+      <td><%=order.total_price%>元</td>
 
     </tr>
   <%end%>
