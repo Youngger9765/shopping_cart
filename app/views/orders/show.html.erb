@@ -1,31 +1,55 @@
 <h1>Order show</h1>
 
-<h2>order_name:<%=@order.name%></h2>
-<h2>order_id:<%=@order.id%></h2>
+<h2>訂購人:<%=@order.name%></h2>
+<h2>訂單編號:<%=@order.id%></h2>
 
 <table class="table">
   <tr>
-    <td>id</td>
+    <td>Product_id</td>
     <td>name</td>
+    <td>單價</td>
+    <td>數量</td>
+    <td>單位</td>
+    <td>小記</td>
   </tr>
 
   <% @order.products.each do |p|%>
     <tr>
       <td><%=p.id%></td> 
       <td><%=p.name%></td>
+      <td><%=p.price%></td>
+      <td><%=@order.product_number(p)%></td>
+      <td><%=p.unit%></td>
+      <td><%=@order.product_subtotal(p)%>元</td>
     </tr>
   <%end%>
 </table>
 
 
+<div class="col-md-4 col-md-offset-8">
+  <h2> 總計：<%=@order.total_price%>元 
+  <%=link_to "完成", orders_path, :class => "btn btn-success" %></h2>
+</div>
+
+
+
+  
+
+
+
 
 <%=form_for @order, :url => order_path(@order) do |f|%>
   <div class="form-group">
-    <%= f.label :product_list, "Product" %>
+    <%= f.label :product_list, "產品" %>
     <%= f.select :product_list, Product.all.map{ |x| [x.name, x.id]}, {}, :multiple => "true" , :class => "form-control"%>
   </div>
 
-  <%= f.submit "Update" %>
+  <div class="form-group">
+    <%= f.label :order_number, "數量" %>
+    <%= f.text_field :order_number, :class => "form-control"%>
+  </div>
+
+  <%= f.submit "更新" %>
 <%end%>
 
 <script>

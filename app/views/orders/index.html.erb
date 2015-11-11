@@ -3,36 +3,44 @@
 <%= form_for @order, :url => orders_path, :method => :post do |f|%>
 
   <div class="form-group">
-    <%= f.label :name, "Name" %>
+    <%= f.label :name, "姓名" %>
     <%= f.text_field :name %>
   </div>
-
   <div class="form-group">
-    <%= f.label :product_list, "Products" %>
-    <%= f.select :product_list, Product.all.map{ |x| [x.name, x.id]}, {}, :multiple => "true" , :class => "form-control"%>
+    <%= f.label :address, "地址" %>
+    <%= f.text_field :address %>
+  </div>
+  <div class="form-group">
+    <%= f.label :phone, "電話" %>
+    <%= f.text_field :phone %>
   </div>
 
-  <%= f.submit "建立新清單" %>
+  <%= f.submit "建立新訂單" %>
 
 <%end%>
 
 <hr>
 
 <table class="table">
+  <tr>
+    <td>姓名</td>
+    <td>電話</td>
+    <td>日期</td>
+    <td>商品數量</td>
+    <td>總價</td>  
+  </tr>
   <%@orders.each do |order|%>
     <tr>
       <td><%=link_to order.name, order_path(order)%></td>
+      <td><%=order.phone%></td>
+      <td><%=order.created_at%></td>
+      <td><%=%></td> 
 
     </tr>
   <%end%>
 </table>
 
-<script>
-  $("#order_product_list").select2({
-     tags: <%=raw Product.all.map{ |p| p.name }.to_json %>,
-     tokenSeparators: [',', ' ']
-   });
-</script>
+
 
 
 
