@@ -22,6 +22,6 @@ class Order < ActiveRecord::Base
 
   def total_price
     ships = OrderProductShip.where(:order_id => self.id)
-    ships.to_a.sum(&:subtotal)
+    ships.to_a.sum(&:subtotal) 
   end
 end

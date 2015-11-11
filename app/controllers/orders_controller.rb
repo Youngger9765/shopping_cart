@@ -46,8 +46,8 @@ class OrdersController < ApplicationController
       end
     end
 
-
-
+    @order.total = OrderProductShip.where(:order_id => @order.id).to_a.sum(&:subtotal)
+    @order.save!
 
     redirect_to order_path(@order)
   end
