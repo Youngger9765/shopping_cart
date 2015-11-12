@@ -51,8 +51,15 @@ class OrdersController < ApplicationController
   end
 
   def destroy
-    @order.delete
-    redirect_to orders_path
+    if params[:product_id]
+      OrderProductShip.where(:order_id => @order.id).find_by_product_id(params[:product_id]).delete
+      redirect_to order_path(@order)
+    else
+      @order.delete
+      redirect_to orders_path
+    end
+
+    
   end
 
 
