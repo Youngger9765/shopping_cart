@@ -45,9 +45,9 @@
       <td><%=p.id%></td> 
       <td><%=p.name%></td>
       <td><%=p.price%></td>
-      <td><%=@order.product_number(p)%></td>
+      <td><%=@order.product_info(p,"number")%></td>
       <td><%=p.unit%></td>
-      <td><%=@order.product_subtotal(p)%>元</td>
+      <td><%=@order.product_info(p,"subtotal")%>元</td>
       <td><%=link_to "刪除", order_path(@order,:product_id => p.id), :method=>:delete, :class => "btn btn-danger"%></td>
     </tr>
   <%end%>

@@ -14,14 +14,9 @@ class Order < ActiveRecord::Base
     self.products.map{|p| p.name}
   end
 
-  def product_number(p)
-    ships = OrderProductShip.where(:order_id => self.id).find_by_product_id(p.id)
-    number = ships.number
-  end
-
-  def product_subtotal(p)
-    ships = OrderProductShip.where(:order_id => self.id).find_by_product_id(p.id)
-    subtotal = ships.subtotal 
+  def product_info(p,info)
+    ships = OrderProductShip.where("order_id =? AND product_id = ?", self.id,p.id)
+    information = ships.pluck(:"#{info}")[0]
   end
 
   def total_price
