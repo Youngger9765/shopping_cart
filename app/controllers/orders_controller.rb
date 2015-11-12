@@ -58,10 +58,7 @@ class OrdersController < ApplicationController
       @order.delete
       redirect_to orders_path
     end
-
-    
   end
-
 
   private
 
