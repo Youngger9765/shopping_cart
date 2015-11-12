@@ -1,4 +1,4 @@
-<h1>Products index</h1>
+<h1>產品清單</h1>
 
 <table class="table">
   <tr>
@@ -7,13 +7,18 @@
     <td>單位</td>
     <td>價格(台幣)</td>
   </tr>
-  
+
   <% @products.each do |p|%>
-    <tr>
-      <td> <%=p.name%></td>
-      <td> <%=p.description%></td>
-      <td> <%=p.unit%></td>
-      <td> <%=p.price%></td>
+    <tr> 
+      <td><%=link_to p.name, product_path(p)%></td>
+      <td><%=p.description%></td>
+      <td><%=p.unit%></td>
+      <td><%=p.price%></td>
+      <td><%= link_to "刪除", product_path(p),:method => :delete, :class => "btn btn-danger", data: {confirm: "你確定要刪除： #{p.name}:#{p.try(:description)}?"}%></td>
     </tr>
   <%end%>
 </table>
+
+
+<hr>
+<%= link_to "新建產品", new_product_path, :class =>"btn btn-default"%>
