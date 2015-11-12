@@ -14,9 +14,18 @@ class Order < ActiveRecord::Base
     self.products.map{|p| p.name}
   end
 
-  def product_info(p,info)
-    ships = OrderProductShip.where("order_id =? AND product_id = ?", self.id,p.id)
-    information = ships.pluck(:"#{info}")[0]
+  def product_info
+    ships = OrderProductShip.where(:order_id => self.id)
+    @order_information = ships.pluck(:product_id,:number,:subtotal)
+    
+    @info = Hash.new
+    @order_information.each do |i|
+      @info["#{i[0]}"]={:number => i[1], :subtotal => i[2]}
+    end
+  end
+
+  def product_detail(p)
+    @info["#{p}"]
   end
 
   def total_price
