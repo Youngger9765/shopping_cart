@@ -4,10 +4,6 @@ Rails.application.routes.draw do
   resources :products
   resources :orders
 
-  namespace :admin do
-    resources :products
-  end
-
   root :to => 'products#index'
 
   # The priority is based upon order of creation: first created -> highest priority.
