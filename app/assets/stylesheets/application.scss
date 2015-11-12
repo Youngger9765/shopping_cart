@@ -20,3 +20,43 @@
  *= require_self
  *= require select2
  */
+
+
+#order-btn{
+  background-color: green;
+  margin: 5%;
+}
+
+#order-btn h1{
+  color: white;
+}
+
+#order-btn div{
+  text-align: center;
+}
+
+#product-btn{
+  background-color: blue;
+  margin: 5%;
+}
+
+#product-btn h1{
+  color: white;
+}
+
+#product-btn div{
+  text-align: center;
+}
+
+#customer-btn{
+  background-color: red;
+  margin: 5%;
+}
+
+#customer-btn div{
+  text-align: center;
+}
+
+#customer-btn h1{
+  color: white;
+}

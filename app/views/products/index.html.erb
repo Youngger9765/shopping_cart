@@ -1,5 +1,7 @@
 <h1>產品清單</h1>
 
+<h1><%= link_to "新建產品", new_product_path, :class =>"btn btn-warning btn-lg"%></h1>
+
 <table class="table">
   <tr>
     <td>品名</td>
@@ -18,7 +20,3 @@
     </tr>
   <%end%>
 </table>
-
-
-<hr>
-<%= link_to "新建產品", new_product_path, :class =>"btn btn-default"%>

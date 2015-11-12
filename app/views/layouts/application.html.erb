@@ -12,25 +12,54 @@
 
 
 <div class="container">
-  <div class="row">
     <div class="col-md-12">
-      <%= link_to "訂單", orders_path, :class =>"btn btn-success"%>
-      <%= link_to "產品", products_path, :class =>"btn btn-primary"%>
-      <%= link_to "客戶", customers_path, :class =>"btn btn-danger"%>
-      <% if flash[:alert].present? %>
-        <div class="alert alert-danger" role="alert">
-          <%= flash[:alert]%>
+      <div class="row">
+        <div class="col-md-4 col-sm-3">
+          <div id="order-btn">
+            <%= link_to orders_path do%>
+              <div>
+                <h1>訂單</h1>
+              </div>
+            <%end%>
+          </div>
         </div>
-      <%end%>
-      <% if flash[:notice].present? %>
-        <div class="alert alert-success" role="alert">
-          <%= flash[:notice]%>
-        </div>
-      <%end%>
 
-      <%= yield %>
+        <div class="col-md-4 col-sm-3">
+          <div id="product-btn">
+            <%= link_to products_path do%>
+              <div>
+                <h1>產品</h1>
+              </div>
+            <%end%>
+          </div>
+        </div>
+
+        <div class="col-md-4 col-sm-3">
+          <div id="customer-btn">
+            <%= link_to customers_path do%>
+              <div>
+                <h1>客戶</h1>
+              </div>
+            <%end%>
+          </div>
+        </div> 
+      </div> 
     </div>
-  </div>
+
+    <div class="col-md-12">
+        <% if flash[:alert].present? %>
+          <div class="alert alert-danger" role="alert">
+            <%= flash[:alert]%>
+          </div>
+        <%end%>
+        <% if flash[:notice].present? %>
+          <div class="alert alert-success" role="alert">
+            <%= flash[:notice]%>
+          </div>
+        <%end%>
+
+        <%= yield %>
+    </div>
 </div>
 
 
