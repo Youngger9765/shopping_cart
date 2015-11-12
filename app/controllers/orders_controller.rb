@@ -1,13 +1,16 @@
 class OrdersController < ApplicationController
   
   before_action :find_order, :only => [:show, :update, :destroy]
+  
   def index
     @orders = Order.all
-    @order = Order.new
   end 
 
+  def new
+    @order = Order.new
+  end
+
   def create
-    
     @order = Order.new(order_params)
     @order.save
 
@@ -28,6 +31,10 @@ class OrdersController < ApplicationController
 
       product_list.each do|p|
         product_id = p.to_i
+
+        if product_id == 0
+          break
+        end  
 
         if OrderProductShip.where(:order_id => @order.id).find_by_product_id(product_id)
 
