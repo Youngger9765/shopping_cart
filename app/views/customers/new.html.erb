@@ -1,0 +1,7 @@
+<h1>建立新客戶</h1>
+
+<%= form_for @customer, :url => customers_path, :method => :post do |f|%>
+  <%= render :partial => 'form', :locals => { :f => f} %>
+  
+  <%= f.submit "建立新客戶" %>
+<%end%>

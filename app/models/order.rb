@@ -1,5 +1,7 @@
 class Order < ActiveRecord::Base
 
+  belongs_to :customer
+
   has_many :order_product_ships
   has_many :products, :through => :order_product_ships
 

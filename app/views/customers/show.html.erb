@@ -1,0 +1,8 @@
+<h1>客戶資訊</h1>
+
+<%=form_for @customer, :url => customer_path(@customer), :method => :patch do|f|%>
+
+  <%= render :partial => 'form', :locals => { :f => f} %>
+
+  <%= f.submit "送出更改" %>
+<%end%>

@@ -14,8 +14,14 @@
 ActiveRecord::Schema.define(version: 20151110093534) do
 
   create_table "customers", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "company",        limit: 255
+    t.integer  "company_tax_id", limit: 4
+    t.string   "name",           limit: 255
+    t.string   "phone",          limit: 255
+    t.string   "address",        limit: 255
+    t.string   "email",          limit: 255
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
   end
 
   create_table "order_product_ships", force: :cascade do |t|

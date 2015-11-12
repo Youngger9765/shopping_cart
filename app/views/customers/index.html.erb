@@ -1,0 +1,26 @@
+<h1>客戶資訊</h1>
+
+<table class="table">
+  <tr>
+    <td>ID</td>
+    <td>公司</td>
+    <td>統一編號</td>
+    <td>姓名</td>
+    <td>電話</td>
+    <td>住址</td>
+  </tr>
+
+  <%@customers.each do |c|%>
+    <tr>
+      <td><%=link_to c.id, customer_path(c)%></td>
+      <td><%=c.company%></td>
+      <td><%=c.company_tax_id%></td>
+      <td><%=c.name%></td>
+      <td><%=c.phone%></td>
+      <td><%=c.address%></td>
+      <td><%= link_to "刪除", customer_path(c), :method => :delete, :class =>"btn btn-danger", data: {confirm: "你確定要刪除客戶： #{c.company}的#{c.name}?"}%></td>
+    </tr>
+  <%end%>
+</table>
+
+<%= link_to "新建客戶", new_customer_path, :class =>"btn btn-default"%>

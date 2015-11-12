@@ -1,22 +1,22 @@
 <h1>order index</h1>
 
 <%= form_for @order, :url => orders_path, :method => :post do |f|%>
-
   <div class="form-group">
     <%= f.label :name, "姓名" %>
     <%= f.text_field :name %>
   </div>
+
   <div class="form-group">
     <%= f.label :address, "地址" %>
     <%= f.text_field :address %>
   </div>
+
   <div class="form-group">
     <%= f.label :phone, "電話" %>
     <%= f.text_field :phone %>
   </div>
 
   <%= f.submit "建立新訂單" %>
-
 <%end%>
 
 <hr>
@@ -39,7 +39,6 @@
       <td><%=order.total_product_number%></td>
       <td><%=order.total_price%>元</td>
       <td><%=link_to "刪除", order_path(order), :method => :delete, :class =>"btn btn-danger"%></td>
-
     </tr>
   <%end%>
 </table>
