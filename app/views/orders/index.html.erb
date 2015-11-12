@@ -23,6 +23,7 @@
 
 <table class="table">
   <tr>
+    <td>訂單編號</td>
     <td>姓名</td>
     <td>電話</td>
     <td>建單日期</td>
@@ -31,7 +32,8 @@
   </tr>
   <%@orders.each do |order|%>
     <tr>
-      <td><%=link_to order.name, order_path(order)%></td>
+      <td><%=link_to order.id, order_path(order)%></td>
+      <td><%=order.name%></td>
       <td><%=order.phone%></td>
       <td><%=order.created_at.strftime("%Y/%m/%d")%></td>
       <td><%=order.total_product_number%></td>
