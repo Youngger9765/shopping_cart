@@ -47,8 +47,6 @@ test:
 #   production:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
-production:
-  <<: *default
-  database: shopping_cart_production
-  username: shopping_cart
-  password: <%= ENV['SHOPPING_CART_DATABASE_PASSWORD'] %>
+production: 
+  adapter: postgresql 
+  encoding: unicode
