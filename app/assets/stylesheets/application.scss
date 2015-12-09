@@ -63,3 +63,73 @@
 #customer-btn h1{
   color: white;
 }
+
+
+@media (max-width: 1000px) {
+  h1{
+    font-size: 60px;
+  }
+
+  h4{
+    font-size: 50px;
+  }
+
+  #order-btn{
+    background-color: green;
+    margin: 5%;
+    border-radius: 15px;
+  }
+
+  #order-btn h1{
+    color: white;
+  }
+
+  #order-btn div{
+    text-align: center;
+  }
+
+  #product-btn{
+    background-color: blue;
+    margin: 5%;
+    border-radius: 15px;
+  }
+
+  #product-btn h1{
+    color: white;
+  }
+
+  #product-btn div{
+    text-align: center;
+  }
+
+  #customer-btn{
+    background-color: red;
+    margin: 5%;
+    border-radius: 15px;
+  }
+
+  #customer-btn div{
+    text-align: center;
+  }
+
+  #customer-btn h1{
+    color: white;
+  }
+
+  body{
+    font-size: 50px;
+  }
+
+  .btn-lg{
+    font-size: 50px;
+  }
+
+  .form-control{
+    height: 60px;
+  }
+
+  td{
+    font-size: 40px;
+  }
+
+}
