@@ -40,6 +40,11 @@ class ProductsController < ApplicationController
     redirect_to products_path
   end
 
+  def import
+    Product.import(params[:file])
+    redirect_to root_url, notice: "Products imported."
+  end
+
   private
 
   def product_params
